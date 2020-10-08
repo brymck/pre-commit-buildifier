@@ -1,0 +1,13 @@
+- id: buildifier
+  name: Buildifier
+  entry: run-buildifier.sh
+  language: script
+  files: |
+    (?x)^(
+      BUILD.bazel|
+      BUILD|
+      WORKSPACE|
+      .*\.bzl
+    )$
+  description: Runs Buildifier on Bazel build and workspace files.
+  minimum_pre_commit_version: '1'
