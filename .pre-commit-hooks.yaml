@@ -2,12 +2,14 @@
   name: Buildifier
   entry: run-buildifier.sh
   language: script
+  # For Buildifier's filename detection rules, see
+  # https://github.com/bazelbuild/buildtools/blob/master/buildifier/utils/utils.go
   files: |
     (?x)^(
-      BUILD.bazel|
       BUILD|
       WORKSPACE|
-      .*\.bzl
+      .*\.(bzl|sky|star)|
+      (BUILD|WORKSPACE)\..*\.(bazel|oss)
     )$
   description: Runs Buildifier on Bazel build and workspace files.
   minimum_pre_commit_version: '1'
